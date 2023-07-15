@@ -48,7 +48,7 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
 
     sudo nano /etc/mysql/my.cnf
 
-add this to the 50-server.cnf file
+add this
 
     
     [mysqld]
@@ -59,7 +59,6 @@ add this to the 50-server.cnf file
     [mysql]
       default-character-set = utf8mb4
 
-Now press (Ctrl-X) to exit
 
     sudo service mysql restart
 
