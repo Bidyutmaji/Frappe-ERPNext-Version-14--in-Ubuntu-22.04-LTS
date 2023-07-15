@@ -38,46 +38,6 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
 
     sudo apt-get install software-properties-common
     sudo apt install mariadb-server
-    sudo mysql_secure_installation
-    
-    
-      In order to log into MariaDB to secure it, we'll need the current
-      password for the root user. If you've just installed MariaDB, and
-      haven't set the root password yet, you should just press enter here.
-
-      Enter current password for root (enter for none): # PRESS ENTER
-      OK, successfully used password, moving on...
-      
-      
-      Switch to unix_socket authentication [Y/n] Y
-      Enabled successfully!
-      Reloading privilege tables..
-       ... Success!
- 
-      Change the root password? [Y/n] Y
-      New password: 
-      Re-enter new password: 
-      Password updated successfully!
-      Reloading privilege tables..
-       ... Success!
-
-      Remove anonymous users? [Y/n] Y
-       ... Success!
- 
-       Disallow root login remotely? [Y/n] Y
-       ... Success!
-
-       Remove test database and access to it? [Y/n] Y
-       - Dropping test database...
-       ... Success!
-       - Removing privileges on test database...
-       ... Success!
- 
-       Reload privilege tables now? [Y/n] Y
-       ... Success!
-
- 
-    
     
     
 ### STEP 6  MySQL database development files
@@ -86,33 +46,18 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
 
 ### STEP 7 Edit the mariadb configuration ( unicode character encoding )
 
-    sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+    sudo nano /etc/mysql/my.cnf
 
 add this to the 50-server.cnf file
 
     
-    [server]
-    user = mysql
-    pid-file = /run/mysqld/mysqld.pid
-    socket = /run/mysqld/mysqld.sock
-    basedir = /usr
-    datadir = /var/lib/mysql
-    tmpdir = /tmp
-    lc-messages-dir = /usr/share/mysql
-    bind-address = 127.0.0.1
-    query_cache_size = 16M
-    log_error = /var/log/mysql/error.log
-    
     [mysqld]
-    innodb-file-format=barracuda
-    innodb-file-per-table=1
-    innodb-large-prefix=1
-    character-set-client-handshake = FALSE
-    character-set-server = utf8mb4
-    collation-server = utf8mb4_unicode_ci      
-     
+      character-set-client-handshake = FALSE
+      character-set-server = utf8mb4
+      collation-server = utf8mb4_unicode_ci
+
     [mysql]
-    default-character-set = utf8mb4
+      default-character-set = utf8mb4
 
 Now press (Ctrl-X) to exit
 
@@ -197,10 +142,3 @@ Now press (Ctrl-X) to exit
     
     sudo apt install certbot python3-certbot-nginx
     certbot -d {domain_name} --register-unsafely-without-email
-    
-   for auto renew the certificate
-   
-    sudo certbot renew --dry-run
-
-
-    
