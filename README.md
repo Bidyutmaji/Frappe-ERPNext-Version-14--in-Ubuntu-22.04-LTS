@@ -87,7 +87,7 @@ Now press (Ctrl-X) to exit
 
 ### STEP 12 install frappe-bench
 
-    sudo -H pip3 install frappe-bench==5.10.1
+    sudo pip install frappe-bench
     
     bench --version
     
@@ -100,9 +100,9 @@ Now press (Ctrl-X) to exit
     
 ### STEP 14 create a site in frappe bench 
     
-    bench new-site dcode.com
+    bench new-site jlp.site
     
-    bench use dcode.com
+    bench use jlp.site
 
 ### STEP 15 install ERPNext latest version in bench & site
 
@@ -110,35 +110,33 @@ Now press (Ctrl-X) to exit
     bench get-app payments
     
     bench get-app erpnext --branch version-14
-    ###OR
-    bench get-app https://github.com/frappe/erpnext --branch version-14
 
-    bench --site dcode.com install-app erpnext
+    bench --site jlp.site install-app erpnext
     
     bench start
     
 ### Step 16 setup production
     
-    sudo bench setup production dcode-frappe
+    sudo bench setup production [user]
     bench restart
 
 #### If bench restart is not worked run the following command again with all Questions Yes
     
-    sudo bench setup production dcode-frappe
+    sudo bench setup production [user]
     
 #### if js and css file is not loading on login window run the following command
 
-    sudo chmod o+x /home/dcode-frappe
+    sudo chmod o+x /home/[user]
     
 #### STEP 17 Create a new user
     
-    sudo adduser dcode-frappe
-    sudo usermod -aG sudo dcode-frappe
-    su - dcode-frappe
+    sudo adduser [user]
+    sudo usermod -aG sudo [user]
+    su - [user]
     
     
     
-#### STEP 16 SSL certificate fot https
+#### STEP 16 SSL certificate for https
     
     sudo apt install certbot python3-certbot-nginx
     certbot -d {domain_name} --register-unsafely-without-email
