@@ -8,7 +8,7 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
       Python 3.6+
       Node.js 14+
       Redis 5                                       (caching and real time updates)
-      MariaDB 10.3.x / Postgres 9.5.x               (to run database driven apps)
+      MariaDB 10.3.x                                (to run database driven apps)
       yarn 1.12+                                    (js dependency manager)
       pip 20+                                       (py dependency manager)
       wkhtmltopdf (version 0.12.5 with patched qt)  (for pdf generation)
@@ -26,7 +26,7 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
 
 ### STEP 3 Install setuptools and pip (Python's Package Manager).
 
-    sudo apt-get install python3-setuptools python3-pip
+    sudo apt-get install python3-pip
 
 ### STEP 4 Install virtualenv
     
@@ -71,7 +71,7 @@ add this
     sudo apt install curl 
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     source ~/.profile
-    nvm install 16
+    nvm install 14
 
 ### STEP 10  install Yarn
 
@@ -81,7 +81,7 @@ add this
 
 ### STEP 11 install wkhtmltopdf
 
-    sudo apt-get install xvfb libfontconfig wkhtmltopdf
+    sudo apt-get install xvfb wkhtmltopdf
     
 
 ### STEP 12 install frappe-bench
@@ -132,6 +132,7 @@ add this
     sudo adduser [user]
     sudo usermod -aG sudo [user]
     su - [user]
+
     
     
     
